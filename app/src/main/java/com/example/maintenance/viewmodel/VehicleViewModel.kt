@@ -8,7 +8,7 @@ import com.example.maintenance.data.entities.Vehicle
 
 class VehicleViewModel(private val dbDao: IVehicleDao, application: Application) : AndroidViewModel(application) {
 
-    private val vehicles = dbDao.getAllVehicles()
+    val allVehicles = dbDao.getAllVehicles()
 
     suspend fun insertNewVehicle(vehicle: Vehicle) {
         dbDao.insertVehicle(vehicle)

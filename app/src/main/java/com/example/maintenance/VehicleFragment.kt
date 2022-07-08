@@ -6,12 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.maintenance.data.db.VehicleDB
 import com.example.maintenance.data.entities.MaintenanceTask
 import com.example.maintenance.data.entities.Vehicle
 import com.example.maintenance.databinding.FragmentVehicleBinding
 import com.example.maintenance.vehicle.VehicleListAdapter
+import com.example.maintenance.viewmodel.VehicleViewModel
+import com.example.maintenance.viewmodel.VehicleViewModelFactory
+import kotlinx.coroutines.CoroutineScope
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -26,22 +33,17 @@ class VehicleFragment : Fragment() {
 
     private lateinit var vehicleAdapter: VehicleListAdapter
 
-    private var testList = mutableListOf<Vehicle>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        if (testList.size == 0) {
-            var taskForFirstVeh = MaintenanceTask(description = "This needs to be done")
-            var firstVeh = Vehicle(0, "HONDA", mutableListOf(taskForFirstVeh))
-            var secondVeh = Vehicle(0, "YAMAHA", mutableListOf(taskForFirstVeh))
-            var thirdVeh = Vehicle(0, "SUZUKI")
-            testList.add(firstVeh)
-            testList.add(secondVeh)
-            testList.add(thirdVeh)
-        }
+        val application = requireNotNull(this.activity).application
+        val dataSource = VehicleDB.getInstance(application, CoroutineScope(context!!)).vehicleDao()
+        val viewModelFactory = VehicleViewModelFactory(dataSource, application)
+        val vehicleViewModel = ViewModelProvider(this, viewModelFactory)[VehicleViewModel::class.java]
+
 
         _binding = FragmentVehicleBinding.inflate(inflater, container, false)
         return binding.root

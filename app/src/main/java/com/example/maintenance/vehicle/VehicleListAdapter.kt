@@ -4,10 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintenance.data.entities.Vehicle
+import com.example.maintenance.data.entities.VehicleWithMaintenanceTask
 import com.example.maintenance.databinding.VehicleViewholderBinding
 
 
-class VehicleListAdapter(var inputList: MutableList<Vehicle>, val onClickListener: IVehicleOnClickListener): RecyclerView.Adapter<VehicleViewHolder>() {
+class VehicleListAdapter(var inputList: MutableList<VehicleWithMaintenanceTask>, val onClickListener: IVehicleOnClickListener): RecyclerView.Adapter<VehicleViewHolder>() {
 
     fun interface IVehicleOnClickListener {
         fun addOnClickListener(vehicle: Vehicle)
@@ -18,7 +19,7 @@ class VehicleListAdapter(var inputList: MutableList<Vehicle>, val onClickListene
     }
 
     override fun onBindViewHolder(holder: VehicleViewHolder, position: Int) {
-        holder.BindValues(inputList[position])
+        holder.bindValues(inputList[position])
     }
 
     override fun getItemCount(): Int {

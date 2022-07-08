@@ -14,8 +14,6 @@ data class Vehicle(
     var vehicleId: Long = 0,
     @ColumnInfo(name = "vehicleName")
     var vehicleName: String = "",
-    @ColumnInfo(name = "maintenanceTasks")
-    var maintenanceTaskList: MutableList<MaintenanceTask> = mutableListOf(),
     @ColumnInfo(name = "kms")
     var kms: Long = 0
 ): Parcelable {

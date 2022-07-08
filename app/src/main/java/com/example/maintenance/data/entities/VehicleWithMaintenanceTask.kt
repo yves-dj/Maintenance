@@ -1,6 +1,7 @@
 package com.example.maintenance.data.entities
 
 import androidx.room.Embedded
+import androidx.room.Entity
 import androidx.room.Relation
 
 data class VehicleWithMaintenanceTask(
@@ -8,7 +9,7 @@ data class VehicleWithMaintenanceTask(
     val vehicle: Vehicle,
     @Relation(
         parentColumn = "vehicleId",
-        entityColumn = "taskOwnerId"
+        entityColumn = "taskId"
     )
     val maintenanceTasks: List<MaintenanceTask>
 )

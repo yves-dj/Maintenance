@@ -16,10 +16,10 @@ interface IVehicleDao {
     @Delete
     suspend fun deleteVehicle(item: Vehicle)
 
-    @Transaction
-    @Query("SELECT * FROM vehicles WHERE vehicleId =:id")
-    suspend fun getVehicleById(id: Int): VehicleWithMaintenanceTask
+//    @Transaction
+//    @Query("SELECT * FROM vehicles WHERE vehicleId =:id")
+//    suspend fun getVehicleById(id: Int): VehicleWithMaintenanceTask
 
-    @Query("SELECT * FROM vehicles ORDER BY id ASC")
+    @Query("SELECT * FROM vehicles")
     fun getAllVehicles(): LiveData<List<Vehicle>>
 }
