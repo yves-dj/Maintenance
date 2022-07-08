@@ -3,6 +3,7 @@ package com.example.maintenance.data.entities
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
@@ -10,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class Vehicle(
     @PrimaryKey(autoGenerate = true)
-    var vehicleId: Int = 0,
+    var vehicleId: Long = 0,
     @ColumnInfo(name = "vehicleName")
     var vehicleName: String = "",
     @ColumnInfo(name = "maintenanceTasks")

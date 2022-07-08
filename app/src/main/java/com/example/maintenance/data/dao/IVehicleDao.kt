@@ -3,6 +3,7 @@ package com.example.maintenance.data.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.maintenance.data.entities.Vehicle
+import com.example.maintenance.data.entities.VehicleWithMaintenanceTask
 
 @Dao
 interface IVehicleDao {
@@ -15,8 +16,9 @@ interface IVehicleDao {
     @Delete
     suspend fun deleteVehicle(item: Vehicle)
 
+    @Transaction
     @Query("SELECT * FROM vehicles WHERE vehicleId =:id")
-    suspend fun getVehicleById(id: Int): Vehicle
+    suspend fun getVehicleById(id: Int): VehicleWithMaintenanceTask
 
     @Query("SELECT * FROM vehicles ORDER BY id ASC")
     fun getAllVehicles(): LiveData<List<Vehicle>>
