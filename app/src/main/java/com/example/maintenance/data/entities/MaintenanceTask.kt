@@ -1,4 +1,4 @@
-package com.example.maintenance.data
+package com.example.maintenance.data.entities
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

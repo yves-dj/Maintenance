@@ -3,7 +3,7 @@ package com.example.maintenance.vehicle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.maintenance.data.Vehicle
+import com.example.maintenance.data.entities.Vehicle
 import com.example.maintenance.databinding.VehicleViewholderBinding
 
 

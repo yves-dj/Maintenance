@@ -6,10 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.maintenance.data.MaintenanceTask
-import com.example.maintenance.data.Vehicle
+import com.example.maintenance.data.entities.Vehicle
 import com.example.maintenance.databinding.FragmentMaintenanceBinding
 
 /**

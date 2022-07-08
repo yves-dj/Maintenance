@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.maintenance.data.MaintenanceTask
-import com.example.maintenance.data.Vehicle
+import com.example.maintenance.data.entities.MaintenanceTask
+import com.example.maintenance.data.entities.Vehicle
 import com.example.maintenance.databinding.FragmentVehicleBinding
 import com.example.maintenance.vehicle.VehicleListAdapter
-import java.util.jar.Manifest
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
