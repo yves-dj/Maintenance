@@ -3,26 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/VehicleFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.maintenance.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/VehicleFragment"
+        android:name="com.example.maintenance.VehicleFragment"
+        android:label="@string/vehicle_fragment_label"
+        tools:layout="@layout/fragment_vehicle">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_VehicleFragment_to_VehicleDetailFragment"
+            app:destination="@id/VehicleDetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.maintenance.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+        android:id="@+id/VehicleDetailFragment"
+        android:name="com.example.maintenance.MaintenanceFragment"
+        android:label="@string/maintenance_fragment_label"
+        tools:layout="@layout/fragment_maintenance">
+        <argument
+            android:name="vehicle"
+            app:argType="com.example.maintenance.data.Vehicle" />
     </fragment>
 </navigation>
