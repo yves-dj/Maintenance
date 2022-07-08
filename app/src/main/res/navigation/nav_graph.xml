@@ -22,6 +22,6 @@
         tools:layout="@layout/fragment_maintenance">
         <argument
             android:name="vehicle"
-            app:argType="com.example.maintenance.data.Vehicle" />
+            app:argType="com.example.maintenance.data.entities.Vehicle" />
     </fragment>
 </navigation>
